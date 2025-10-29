@@ -19,7 +19,7 @@ async function status(request, response) {
     databaseActiveConnectionsResult.rows[0].count;
 
   const databaseVersionResult = await database.query({
-    text: "SELECT setting::float FROM pg_settings WHERE name = $1;",
+    text: "SELECT setting FROM pg_settings WHERE name = $1;",
     values: ["server_version"],
   });
 
